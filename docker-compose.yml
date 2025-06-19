@@ -13,26 +13,10 @@ services:
     networks:
       - wikijs
 
-  elasticsearch:
-    image: elasticsearch:8.15.3
-    environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    restart: unless-stopped
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    volumes:
-      - es-data:/usr/share/elasticsearch/data
-    networks:
-      - wikijs
-
   wiki:
     image: ghcr.io/requarks/wiki:2
     depends_on:
       - db
-      - elasticsearch
     environment:
       DB_TYPE: postgres
       DB_HOST: db
@@ -53,7 +37,6 @@ services:
 
 volumes:
   db-data:
-  es-data:
 
 networks:
   wikijs:

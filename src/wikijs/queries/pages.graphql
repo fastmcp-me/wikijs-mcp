@@ -1,0 +1,65 @@
+query GetPageById($id: Int!) {
+  pages {
+    single(id: $id) {
+      id
+      path
+      title
+      description
+      tags {
+        tag
+        title
+      }
+      content
+      createdAt
+      updatedAt
+      locale
+    }
+  }
+}
+
+query GetPageByPath($path: String!, $locale: String!) {
+  pages {
+    singleByPath(path: $path, locale: $locale) {
+      id
+      path
+      title
+      description
+      content
+      locale
+      tags {
+        tag
+        title
+      }
+    }
+  }
+}
+
+query GetAllPages($limit: Int, $locale: String, $tags: [String!]) {
+  pages {
+    list(limit: $limit, locale: $locale, tags: $tags) {
+      id
+      path
+      locale
+      title
+      description
+      createdAt
+      updatedAt
+      tags
+    }
+  }
+}
+
+query SearchPages($query: String!, $path: String, $locale: String) {
+  pages {
+    search(query: $query, path: $path, locale: $locale) {
+      results {
+        title
+        description
+        path
+        locale
+      }
+      suggestions
+      totalHits
+    }
+  }
+}

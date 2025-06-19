@@ -1,0 +1,30 @@
+{
+	"name": "wikijs-mcp",
+	"version": "1.0.0",
+	"description": "WikiJS MCP Server",
+	"main": "build/index.js",
+	"type": "module",
+	"author": "Ricardo Fabris",
+	"bin": {
+		"wikijs-mcp": "build/index.js"
+	},
+	"scripts": {
+		"build": "tsc && chmod 755 build/index.js",
+		"codegen": "dotenv -- graphql-codegen --config codegen.yml"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.12.3",
+		"zod": "^3.25.64",
+		"dotenv": "^16.3.1",
+		"graphql": "^16.11.0",
+		"graphql-request": "^7.2.0"
+	},
+	"devDependencies": {
+		"@graphql-codegen/cli": "^5.0.7",
+		"@graphql-codegen/typescript": "^4.1.6",
+		"@graphql-codegen/typescript-graphql-request": "^6.3.0",
+		"@graphql-codegen/typescript-operations": "^4.6.1",
+		"@types/node": "^24.0.1",
+		"typescript": "^5.8.3"
+	}
+}

@@ -1,0 +1,15 @@
+schema: "${WIKIJS_URL}/graphql"
+documents: 
+  - "src/**/*.graphql"
+generates:
+  src/wikijs/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+    config:
+      rawRequest: false
+      skipTypename: false
+      exportFragmentSpreadSubTypes: true
+      dedupeFragments: true
+      gqlImport: 'graphql-tag#gql'

@@ -14,7 +14,7 @@ This MCP server enables AI assistants to interact with WikiJS instances by provi
 ```json
 {
   "mcpServers": {
-    "wikipedia": {
+    "wikijs-mcp": {
       "command": "npx",
         "args": [
             "wikijs-mcp"

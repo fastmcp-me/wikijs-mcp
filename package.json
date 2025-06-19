@@ -5,6 +5,7 @@
 	"main": "build/index.js",
 	"type": "module",
 	"author": "Ricardo Fabris",
+	"license": "MIT",
 	"bin": {
 		"wikijs-mcp": "build/index.js"
 	},

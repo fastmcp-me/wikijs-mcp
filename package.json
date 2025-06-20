@@ -4,7 +4,7 @@
 	"description": "WikiJS MCP Server",
 	"main": "build/index.js",
 	"type": "module",
-	"author": "Ricardo Fabris",
+	"author": "Ricardo Cenci Fabris",
 	"license": "MIT",
 	"bin": {
 		"wikijs-mcp": "build/index.js"

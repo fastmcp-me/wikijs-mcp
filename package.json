@@ -6,6 +6,20 @@
 	"type": "module",
 	"author": "Ricardo Cenci Fabris",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/RicardoCenci/wikijs-mcp.git"
+	},
+	"bugs": {
+		"url": "https://github.com/RicardoCenci/wikijs-mcp/issues"
+	},
+	"homepage": "https://github.com/RicardoCenci/wikijs-mcp#readme",
+	"keywords": ["mcp", "wikijs", "model-context-protocol", "ai", "assistant"],
+	"files": [
+		"build/**/*",
+		"README.md",
+		"LICENSE"
+	],
 	"bin": {
 		"wikijs-mcp": "build/index.js"
 	},

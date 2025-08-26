@@ -63,7 +63,7 @@ make build
 5. Deploy the WikiJS instance for testing
 
 ```bash
-docker composer up -d
+docker compose up -d
 ```
 
 ## Usage

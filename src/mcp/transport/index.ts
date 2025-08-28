@@ -12,9 +12,9 @@ export function createTransportMethod(
     switch (CONFIG.TRANSPORT_METHOD) {
         case TRANSPORT_METHOD_ENUM.streamableHttp:
             return new HttpTransportMethod(mcpServer, {
-                host: CONFIG.TRANSPORT_OPTIONS.host!,
-                port: CONFIG.TRANSPORT_OPTIONS.port!,
-                sessionTimeoutMs: CONFIG.TRANSPORT_OPTIONS.sessionTimeoutMs,
+                host: CONFIG.TRANSPORT_OPTIONS.HOST!,
+                port: CONFIG.TRANSPORT_OPTIONS.PORT!,
+                sessionTimeoutMs: CONFIG.TRANSPORT_OPTIONS.SESSION_TIMEOUT_MS,
             });
         case TRANSPORT_METHOD_ENUM.stdio:
             return new StdioTransportMethod(mcpServer);

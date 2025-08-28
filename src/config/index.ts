@@ -18,13 +18,13 @@ if (!isValidTransportMethod(transportMethod)) {
 }
 
 const transportOptions = transportMethod == TRANSPORT_METHOD_ENUM.streamableHttp ? {
-	port: process.env.TRANSPORT_OPTIONS_PORT ? parseInt(process.env.TRANSPORT_OPTIONS_PORT) : 9000,
-	host: process.env.TRANSPORT_OPTIONS_HOST ? process.env.TRANSPORT_OPTIONS_HOST : "localhost",
-	sessionTimeoutMs: process.env.TRANSPORT_OPTIONS_SESSION_TIMEOUT_MS ? parseInt(process.env.TRANSPORT_OPTIONS_SESSION_TIMEOUT_MS) : undefined,
-	cors: {
-		origin: process.env.TRANSPORT_OPTIONS_CORS_ORIGIN,
-		headers: process.env.TRANSPORT_OPTIONS_CORS_HEADERS ? process.env.TRANSPORT_OPTIONS_CORS_HEADERS.split(',') : undefined,
-		methods: process.env.TRANSPORT_OPTIONS_CORS_METHODS ? process.env.TRANSPORT_OPTIONS_CORS_METHODS.split(',') : undefined,
+	PORT: process.env.TRANSPORT_OPTIONS_PORT ? parseInt(process.env.TRANSPORT_OPTIONS_PORT) : 9000,
+	HOST: process.env.TRANSPORT_OPTIONS_HOST ? process.env.TRANSPORT_OPTIONS_HOST : "localhost",
+	SESSION_TIMEOUT_MS: process.env.TRANSPORT_OPTIONS_SESSION_TIMEOUT_MS ? parseInt(process.env.TRANSPORT_OPTIONS_SESSION_TIMEOUT_MS) : undefined,
+	CORS: {
+		ORIGIN: process.env.TRANSPORT_OPTIONS_CORS_ORIGIN || undefined,
+		HEADERS: process.env.TRANSPORT_OPTIONS_CORS_HEADERS ? process.env.TRANSPORT_OPTIONS_CORS_HEADERS.split(',') : undefined,
+		METHODS: process.env.TRANSPORT_OPTIONS_CORS_METHODS ? process.env.TRANSPORT_OPTIONS_CORS_METHODS.split(',') : undefined,
 	}
 } : {};
 

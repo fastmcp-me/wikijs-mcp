@@ -73,11 +73,15 @@ npx wikijs-mcp
 ```
 
 ## Environment Variables
-| Variable | Description | Required | Default |
-|----------|-------------|----------|---------|
-| `WIKIJS_URL` | URL of your WikiJS instance | Yes | - |
-| `WIKIJS_API_KEY` | WikiJS API key | Yes | - |
-
+| Variable                               | Description                                              | Required | Allowed Values         |Default                    |
+|----------------------------------------|----------------------------------------------------------|----------|------------------------|---------------------------|
+| `WIKIJS_URL`                           | URL of your WikiJS instance                              | Yes      | -                      | -                         |
+| `WIKIJS_API_KEY`                       | WikiJS API key                                           | Yes      | -                      | -                         |
+| `TRANSPORT_METHOD`                     | The transport method                                     | No       | stdio, streamable-http | stdio                     |
+| `TRANSPORT_OPTIONS_CORS_ORIGIN`        | Cors Origin (only on streamable-http)                    | No       | -                      | *                         |
+| `TRANSPORT_OPTIONS_CORS_HEADERS`       | Cors Headers, comma separated (only on streamable-http)  | No       | -                      |Content-Type=mcp-session-id|
+| `TRANSPORT_OPTIONS_CORS_METHODS`       | Cors Methods, comma separated (only on streamable-http)  | No       | -                      |GET,POST,OPTIONS           | 
+| `TRANSPORT_OPTIONS_SESSION_TIMEOUT_MS` | Session timeout (only on streamable-http)                | No       | -                      |60000                      |
 
 ## License
 This project is licensed under the MIT License.

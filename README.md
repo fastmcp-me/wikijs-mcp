@@ -11,6 +11,8 @@ This MCP server enables AI assistants to interact with WikiJS instances by provi
 - Get all pages from the wiki
 
 ## Configuration for Cursor
+
+### Stdio
 ```json
 {
   "mcpServers": {
@@ -23,6 +25,25 @@ This MCP server enables AI assistants to interact with WikiJS instances by provi
             "WIKIJS_URL": <your wikijs url>,
             "WIKIJS_API_KEY": <your wikijs api key>
         }
+    }
+  }
+}
+```
+
+### Streamable Http
+
+#### Host Machine
+Start the server `TRANSPORT_METHOD=streamable-http TRANSPORT_OPTIONS_PORT=8080 npx wikijs-mcp` (See [Environment Variables](#environment-variables) for all available variables)
+
+#### IDE
+
+```json
+{
+  "mcpServers": {
+    "wikijs-mcp": {
+      "transport": "http-streamable",
+      "name": "WikiJS MCP",
+      "url": <your mcp host url with port>/mcp
     }
   }
 }

@@ -2,9 +2,9 @@
 
 import { WikiJSClient } from './wikijs/index.js';
 import { CONFIG } from './config/index.js';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { WikiJSMcpServer } from './mcp/index.js';
 import { getVersion } from './util/version.js';
+import { createTransportMethod } from './mcp/transport/index.js';
 
 async function main() {
 	const version = getVersion();	
@@ -17,9 +17,24 @@ async function main() {
 		instructions: 'You are a helpful assistant that can search for pages in WikiJS by query string, get a WikiJS page by its ID, and get a WikiJS page by its path and locale.'
 	});
 
-	const transport = new StdioServerTransport();
-	await server.connect(transport);
-	console.error('WikiJS MCP server running on stdio');
+	const transport = createTransportMethod(server);
+
+	await server.start(transport);
+
+	console.error(`WikiJS MCP server running on ${CONFIG.TRANSPORT_METHOD}`);
+
+	process.on('SIGINT', async () => {
+		console.error('Received SIGINT, shutting down gracefully...');
+		await server.close();
+		process.exit(0);
+	});
+
+	process.on('SIGTERM', async () => {
+		console.error('Received SIGTERM, shutting down gracefully...');
+		await server.close();
+		await transport.stop();
+		process.exit(0);
+	});
 }
 
 main().catch((error) => {
